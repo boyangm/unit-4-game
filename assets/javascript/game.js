@@ -1,15 +1,48 @@
 window.onload= function (){
 
+var crystal = $('.crystal');
+var points = 0;
+var wins = 0;
+var losses = 0;
+
+var randomNum2 = Math.floor(Math.random()*120)+19;
+function reset () {
+ points = 0;
+randomNum2 = Math.floor(Math.random()*120)+19;
+$('#status').text('');
+$('.win-lose').html('<h1> Wins: '+ wins + '</h1>'+'<h1> losses: '+ losses + '</h1>')
+newGame();
+};
 
 function newGame () {
-    for (i=1 ; i<5  ; i++){
-        var randomNum = Math.floor(Math.random()*10)+1;
-        $('.crystalWrapper').append($('<div>',{class: 'crystal',value: randomNum})).append('<img src="https://smhttp-ssl-64693.nexcesscdn.net/media/catalog/product/cache/1/thumbnail/300x375/9df78eab33525d08d6e5fb8d27136e95/a/m/amethystpoint-energymuse.jpg">');
-        
-            console.log(randomNum);
+    for (i=0 ; i<4  ; i++){
+        var randomNum = Math.floor(Math.random()*12)+1;
+         crystal.eq(i).attr('value',randomNum); 
     }
+        
+            console.log(randomNum2);
+            console.log(points);
+    $('#score').text('your score right now:');
+    $('#goalNum').text('your goal number is: ' + randomNum2);
 
-}
+};
+function addPoints(){
+
+    points +=parseInt($(this).attr("value"));
+    $('#score').text('your score right now: ' + points);
+    $('#goalNum').text('your goal number is: ' + randomNum2);
+    console.log(points);
+        if (points === randomNum2){
+            wins++;
+            reset();
+           
+        }
+        if (points > randomNum2){
+            losses++;
+            reset();
+        }
+};
+crystal.on('click', addPoints);
+
 newGame();
-
 }
