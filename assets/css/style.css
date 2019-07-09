@@ -1,5 +1,14 @@
+body{
+    position: relative;
+    width: 100%;
+    background: linear-gradient(90deg, teal 10%, pink 40%, white 85%);
+    margin: 0 auto;
+    padding: 0;
+
+}
 .container{
     width: 100%;
+    min-width: 100vh;
     display: block;
 }
 img{
@@ -7,4 +16,19 @@ img{
 }
 .crystalWrapper{
     display: flex;
+    width: 40%;
+    margin: 0 auto;
+    background: transparent;
+}
+
+#score,
+#goalNum{
+    margin-left: 10px;
+}
+
+.container h1{
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+
 }

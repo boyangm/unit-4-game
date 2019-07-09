@@ -22,24 +22,27 @@ function newGame () {
         
             console.log(randomNum2);
             console.log(points);
-    $('#score').text('your score right now:');
-    $('#goalNum').text('your goal number is: ' + randomNum2);
+    $('#score').text('Your score right now:');
+    $('#goalNum').text('Your goal number is: ' + randomNum2);
 
 };
 function addPoints(){
 
     points +=parseInt($(this).attr("value"));
-    $('#score').text('your score right now: ' + points);
-    $('#goalNum').text('your goal number is: ' + randomNum2);
+    $('#score').text('Your score right now: ' + points);
+    $('#goalNum').text('Your goal number is: ' + randomNum2);
     console.log(points);
         if (points === randomNum2){
             wins++;
+            alert('You win!');
             reset();
            
         }
         if (points > randomNum2){
             losses++;
             reset();
+            alert('Haha i beat you! Lets play again.');
+
         }
 };
 crystal.on('click', addPoints);
